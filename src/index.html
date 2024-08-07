@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;1,500&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+BE+VLG:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- set to shrinktofit=no -->
     <meta charset="utf-8" />
     <meta
@@ -28,29 +34,27 @@
 
     <title>Domain Name Generator</title>
   </head>
-  <body>
-    <div
-      class="container d-flex position-absolute top-50 start-50 translate-middle"
-    >
+  <body class="position-absolute top-50 start-50 translate-middle">
+    <div class="container bg-warning rounded-5">
       <div class="row">
-        <div class="col">
-          <h1>Domain Name Generator</h1>
+        <div class="col ">
+          <h1 class="m-3">Domain Name Generator</h1>
         </div>
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col d-flex justify-content-center ">
           <ul id="generatedList">
-            <li>thisisatest.com</li>
+            <li>generating...</li>
           </ul>
         </div>
       </div>
 
       <div class="row">
-        <div class="col">
-          <button type="button" class="btn btn-outline-danger" a href="">
+        <div class="col d-flex justify-content-center">
+          <a href="" type="button" class="btn btn-outline-danger mb-3">
             <strong>Generate</strong>
-          </button>
+          </a>
         </div>
       </div>
     </div>
