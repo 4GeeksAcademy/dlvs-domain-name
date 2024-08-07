@@ -6,17 +6,20 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  let pronoun = ["the", "our"];
-  let adj = ["great", "big"];
-  let noun = ["jogger", "racoon"];
+  const pronoun = ["the", "our"];
+  const adj = ["great", "big"];
+  const noun = ["jogger", "racoon"];
 
-  let randomPronoun = Math.floor(Math.random() * pronoun.length);
-  let randomAdj = Math.floor(Math.random() * adj.length);
-  let randomNoun = Math.floor(Math.random() * noun.length);
+  let domainText = "";
+  pronoun.map(elementPronoun => {
+    adj.map(elementAdj => {
+      noun.map(elementNoun => {
+        domainText += `
+        <li>${elementPronoun}${elementAdj}${elementNoun}</li>
+        `;
+      });
+    });
+  });
 
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-  }
-
-  console.log(randomPronoun);
+  document.querySelector("#generatedList").innerHTML = domainText;
 };
