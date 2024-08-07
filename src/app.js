@@ -6,20 +6,30 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  const pronoun = ["the", "our"];
-  const adj = ["great", "big"];
-  const noun = ["jogger", "racoon"];
+  const pronoun = ["a", "my", "your", "his", "her"];
+  const adj = ["small", "huge", "fast", "bright", "dark"];
+  const noun = ["cat", "dog", "bird", "fish", "tiger"];
+  const topLevelDomainName = [".com", ".biz", ".io", ".eu", ".gov"];
+
+  const randomizer = array => {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  };
 
   let domainText = "";
-  pronoun.map(elementPronoun => {
-    adj.map(elementAdj => {
-      noun.map(elementNoun => {
-        domainText += `
-        <li>${elementPronoun}${elementAdj}${elementNoun}</li>
-        `;
-      });
-    });
-  });
+  let counter = 0;
+  let maxDomainNames = 5;
+
+  while (counter < maxDomainNames) {
+    const newPronoun = randomizer(pronoun);
+    const newAdj = randomizer(adj);
+    const newNoun = randomizer(noun);
+    const newTopLevelDomainName = randomizer(topLevelDomainName);
+
+    domainText += `<li>${newPronoun}${newAdj}${newNoun}${newTopLevelDomainName}</li>`;
+
+    counter++;
+  }
 
   document.querySelector("#generatedList").innerHTML = domainText;
 };
