@@ -1,35 +1,29 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  const pronoun = ["a", "my", "your", "his", "her"];
-  const adj = ["small", "huge", "fast", "bright", "dark"];
-  const noun = ["cat", "dog", "bird", "fish", "tiger"];
-  const topLevelDomainName = [".com", ".biz", ".io", ".eu", ".gov"];
+  document.querySelector("#generatedList").innerHTML = domainGenerator();
 
-  const randomizer = array => {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
-  };
+  function domainGenerator() {
+    const pronoun = ["a", "my"];
+    const adj = ["small", "huge"];
+    const noun = ["cat", "dog"];
+    const topLevelDomainName = [".com", ".biz"];
+    let completeDomain = [];
 
-  let domainText = "";
-  let counter = 0;
-  let maxDomainNames = 5;
-
-  while (counter < maxDomainNames) {
-    const newPronoun = randomizer(pronoun);
-    const newAdj = randomizer(adj);
-    const newNoun = randomizer(noun);
-    const newTopLevelDomainName = randomizer(topLevelDomainName);
-
-    domainText += `<li>${newPronoun}${newAdj}${newNoun}${newTopLevelDomainName}</li>`;
-
-    counter++;
+    for (let x = 0; x < pronoun.length; x++) {
+      for (let y = 0; y < adj.length; y++) {
+        for (let z = 0; z < noun.length; z++) {
+          for (let a = 0; a < topLevelDomainName.length; a++) {
+            let domainName = `<li class="list-group-item">${pronoun[x]}${adj[y]}${noun[z]}${topLevelDomainName[a]}</li>`;
+            completeDomain.push(domainName);
+          }
+        }
+      }
+    }
+    return completeDomain.join("");
   }
-
-  document.querySelector("#generatedList").innerHTML = domainText;
 };
